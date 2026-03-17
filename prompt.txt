@@ -2,7 +2,7 @@ For the most recent year, we want to extract information on a per country/locati
 
 Compile every country and corresponding employee count, ownership percentage, and remaining output fields found in the image into a list of jsons output, referencing the example format provided below. The required output fields for each json element are described below.
 
-There may be no relevant information in an image. If no employee count % ownership on a per country basis are found in the image, respond with an empty list. 
+There may be no relevant information in an image. If no employee numbers on a per locstion basis are found in the image, respond with an empty list. 
  
 Year: The year the information is recorded for. 
 
