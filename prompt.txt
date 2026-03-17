@@ -1,0 +1,92 @@
+For the most recent year, we want to extract information on a per country/location basis about employee count numbers and ownership percentage from an image. This information can be presented differently in every image. Be sure to analyze the image and look for words, symbols, tables, or other formats of information that represent employee numbers and ownership percentage in corresponding countries.   
+
+Compile every country and corresponding employee count, ownership percentage, and remaining output fields found in the image into a list of jsons output, referencing the example format provided below. The required output fields for each json element are described below.
+
+There may be no relevant information in an image. If no employee count % ownership on a per country basis are found in the image, respond with an empty list. 
+ 
+Year: The year the information is recorded for. 
+
+Company Name: The name of the company the information is regarding. 
+
+Country: Country code. Use the three-letter country code. Sometimes employee count and ownership percentage can be grouped into "Other" countries, in which case, use OTH as the country code.
+
+Mine/Refinery/Facility Location: A sub-location in a corresponding country. 
+
+Employees: This variable is the employee or workers count for a specific sub-location of a corresponding country.
+
+% Of Ownership: The company ownership share for each sub-location of a country. If ownership percentages are mentioned but not in relation to any country, do not use that number as your response.
+
+Employment Type: The type of employment related to the employee count for each sub-location of a country. This can be one of Permanent, Temporary, Full-time, Part-time, etc. Every distinct employment type found in the image should be a new json element for that specific sub-location of a country. 
+
+Employee Scale (in 1, 1K, %): The scale used in the employee count. 
+
+Contractors (Number or %): If it is specified that there a certain number of contractors employed, extract that number. 
+
+Contractor Scale (in 1, 1K, %): The scale used in the contractors count.
+
+
+Example format of the expected output:
+[
+    {  
+"Year": "2021",
+"Company Name": "ABC",
+"Country": "CAN",
+"Mine/Refinery/Facility Location": "Niagara",
+"Employment (Total)": "300",
+"% Of Ownership": "100%",
+"Employment Type": "Temporary",
+Employee Scale (in 1, 1K, %): "1",
+Contractors (Number or %): "",
+Contractor Scale (in 1, 1K, %): ""
+},
+    {  
+"Year": "2021",
+"Company Name": "ABC",
+"Country": "CAN",
+"Mine/Refinery/Facility Location": "Niagara",
+"Employment (Total)": "50",
+"% Of Ownership": "100%",
+"Employment Type": "Full-time",
+Employee Scale (in 1, 1K, %): "1",
+Contractors (Number or %): "",
+Contractor Scale (in 1, 1K, %): ""
+},
+    {  
+"Year": "2021",
+"Company Name": "ABC",
+"Country": "CAN",
+"Mine/Refinery/Facility Location": "Quebec City",
+"Employment (Total)": "170",
+"% Of Ownership": "85%",
+"Employment Type": "",
+Employee Scale (in 1, 1K, %): "1",
+Contractors (Number or %): "200",
+Contractor Scale (in 1, 1K, %): "1"
+},
+    {
+"Year": "2021",
+"Company Name": "GEF",
+"Country": "USA",
+"Mine/Refinery/Facility Location": "Salt Lake City",
+"Employment (Total)": "753",
+"% Of Ownership": "85%",
+"Employment Type": "Full-time",
+Employee Scale (in 1, 1K, %): "1k",
+Contractors (Number or %): "",
+Contractor Scale (in 1, 1K, %): ""
+},
+    {
+"Year": "2021",
+"Company Name": "Alpha",
+"Country": "GBR",
+"Mine/Refinery/Facility Location": "Edinburgh",
+"Employment (Total)": "1020",
+"% Of Ownership": "55%",
+"Employment Type": "Permanent",
+Employee Scale (in 1, 1K, %): "1",
+Contractors (Number or %): "",
+Contractor Scale (in 1, 1K, %): ""
+}
+] 
+
+
